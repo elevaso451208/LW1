@@ -1,1 +1,6 @@
-print("\u001b[44mhello world!\u001b[0m")
+print('\033[41m          \033[0m')
+print('\033[47m          \033[0m')
+print('\033[44m          \033[0m')
+print('\033[44m          \033[0m')
+print('\033[47m          \033[0m')
+print('\033[41m          \033[0m')
