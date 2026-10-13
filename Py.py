@@ -14,11 +14,10 @@ def anim(k):
             " Ʌ _ Ʌ\n(> . <)       ",
             " Ʌ _ Ʌ\n(^ w ^)       "
     ]
-    os.system('cls')
     for i in range(k*3):
+        os.system('cls')
         print(color[i%3]+kadr[i%3])
         time.sleep(1)
-        os.system('cls')
     print('\u001b[39m')
 
 def pattern(size, height, width):
