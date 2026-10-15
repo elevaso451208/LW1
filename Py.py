@@ -1,43 +1,44 @@
-import time
 import os
+import time
 
-def flag(height,width):
-    color = ["\u001b[41m", "\u001b[47m", "\u001b[44m", "\u001b[44m", "\u001b[47m", "\u001b[41m"]
+def flag(height, width):
+    color = ["\u001b[41m", "\u001b[47m", "\u001b[44m", 
+             "\u001b[44m", "\u001b[47m", "\u001b[41m"]
     reset = "\u001b[0m"
     for i in range(len(color)):
-        for j in range (height):
-            print(color[i] + ' '*20*width + reset)
+        for j in range(height):
+            print(color[i] + ' ' * 20 * width + reset)
 
-def anim(k):
+def anim(repeats):
     color = ['\u001b[36m', '\u001b[35m', '\u001b[31m']
-    kadr = [" Ʌ _ Ʌ\n(> o <)  meow~",
+    frame = [" Ʌ _ Ʌ\n(> o <)  meow~",
             " Ʌ _ Ʌ\n(> . <)       ",
             " Ʌ _ Ʌ\n(^ w ^)       "
     ]
-    for i in range(k*3):
+    for i in range(repeats * 3):
         os.system('cls')
-        print(color[i%3]+kadr[i%3])
+        print(color[i%3] + frame[i%3])
         time.sleep(1)
     print('\u001b[39m')
 
 def pattern(size, height, width):
-    shablon = [['  ']*2*size for _ in range(size)]
+    temp = [['  '] * 2 * size for _ in range(size)]
     xx = 1
-    for y in range(1,size):
-        x = size//(size-y)
-        for i in range(xx+size-1, x+size):
-            shablon[y][i] = '\u001b[47m' + '  ' + '\u001b[0m'
-        for i in range(size-x, size+1-xx):
-            shablon[y][i] = '\u001b[47m' + '  ' + '\u001b[0m'
+    for y in range(1, size):
+        x = size // (size - y)
+        for i in range(xx + size - 1, x + size):
+            temp[y][i] = '\u001b[47m' + '  ' + '\u001b[0m'
+        for i in range(size - x, size + 1 - xx):
+            temp[y][i] = '\u001b[47m' + '  ' + '\u001b[0m'
         xx = x
-    shablon = [shablon[i]*width for i in range(len(shablon))]
+    temp = [temp[i] * width for i in range(len(temp))]
     for i in range(height):
-        for line in shablon:
+        for line in temp:
             print(*line, sep='')
 
 
 def ratio():
-    file_1 = open(r"C:\Users\Lena\Desktop\Программирование на Питон\sequence.txt")
+    file_1 = open("sequence.txt")
     file = file_1.read().split('\n')
     file_1.close()
     file = [float(i) for i in file]
@@ -49,23 +50,23 @@ def ratio():
             all_d += 1
             if elem > 5: big += 1
             else: small += 1
-    big_p = round(big*100/all_d)
-    small_p = round(small*100/all_d)
-    print("Больше 5: \u001b[44m  \u001b[0m", end = ' '*5)
+    big_p = round(big * 100 / all_d)
+    small_p = round(small * 100 / all_d)
+    print("Больше 5: \u001b[44m  \u001b[0m", end=' ' * 5)
     print("Меньше 5: \u001b[41m  \u001b[0m \n")
-    print("\u001b[44m" + big_p*' ' + "\u001b[0m", big_p, '%')
-    print("\u001b[41m" + small_p*' ' + "\u001b[0m", small_p, '%')
+    print("\u001b[44m" + big_p * ' ' + "\u001b[0m", big_p, '%')
+    print("\u001b[41m" + small_p * ' ' + "\u001b[0m", small_p, '%')
 
 def func():
-    oxy = [[' ']*100 for _ in range(25)]
+    oxy = [[' '] * 100 for _ in range(25)]
     xx = 0
     for y in range(2, 25):
-        x = 100//y 
-        for i in range(x, xx+1):
+        x = 100 // y 
+        for i in range(x, xx + 1):
             oxy[25-y][i] = '\u001b[47m' + ' ' + '\u001b[0m'
         xx = x
     for line in oxy:
-        print(*line, sep = '')
+        print(*line, sep='')
 
 
 anim(3)
